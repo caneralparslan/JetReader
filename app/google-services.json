@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "982206392834",
+    "project_id": "jetareader-6e28d",
+    "storage_bucket": "jetareader-6e28d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982206392834:android:9e53b204990f087d77151b",
+        "android_client_info": {
+          "package_name": "com.amasmobile.jet_a_reader"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLDiP-atqwykzpg2j0Zpu9w8jNzCUs90Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
