@@ -16,7 +16,6 @@ class BookRepository @Inject constructor(private val booksApi: BooksApi){
         try {
             allBooksDataOrException.loading = true
             allBooksDataOrException.data = booksApi.getAllBooks(query)
-            Log.d("All books", "getAllBooks: ${allBooksDataOrException.data.toString()}")
             if(allBooksDataOrException.data.toString().isNotEmpty()) allBooksDataOrException.loading = false
         }
         catch (exception: Exception){

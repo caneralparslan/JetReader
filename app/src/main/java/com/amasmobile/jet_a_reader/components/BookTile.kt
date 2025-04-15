@@ -23,18 +23,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil3.compose.rememberAsyncImagePainter
 import com.amasmobile.jet_a_reader.models.Items
+import com.amasmobile.jet_a_reader.navigation.ReaderScreens
 
 @Composable
-fun BookTile(items: Items){
+fun BookTile(items: Items, navController: NavController){
     Surface(
         shadowElevation = 2.dp,
         shape = RectangleShape,
         color = Color.White,
         modifier = Modifier.fillMaxWidth().padding(start = 30.dp, end = 30.dp, bottom = 10.dp)
             .clickable {
-
+                navController.navigate(ReaderScreens.BookDetailsScreen.name + "/${items.id}")
             }
     ) {
 

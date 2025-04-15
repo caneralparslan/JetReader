@@ -68,14 +68,15 @@ fun SearchContent(navController: NavController,
         )
         SearchTextField(searchViewModel)
         Spacer(Modifier.height(30.dp))
-        BookList(searchViewModel)
+        BookList(searchViewModel, navController)
         Spacer(Modifier.height(20.dp))
     }
 
 }
 
 @Composable
-fun BookList(searchViewModel: SearchViewModel) {
+fun BookList(searchViewModel: SearchViewModel,
+             navController: NavController) {
     val allBooksState = searchViewModel.allBooksData.collectAsState().value
     val books = allBooksState.data?.items
 
@@ -87,13 +88,13 @@ fun BookList(searchViewModel: SearchViewModel) {
         !books.isNullOrEmpty() -> {
             LazyColumn {
                 items(books) { book ->
-                    BookTile(book)
+                    BookTile(book, navController)
                 }
             }
         }
         allBooksState.e != null -> {
             Text(
-                text = "Error: ${allBooksState.e?.localizedMessage ?: "Unknown error"}",
+                text = "A Problem Occurred!",
                 modifier = Modifier.padding(16.dp),
                 color = Color.Red
             )

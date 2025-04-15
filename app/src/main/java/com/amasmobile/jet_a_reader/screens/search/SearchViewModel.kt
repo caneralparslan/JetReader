@@ -41,16 +41,6 @@ class SearchViewModel @Inject constructor(private val repository: BookRepository
 
             _allBooksData.value = DataOrException(data = null, loading = true, e = null)
             _allBooksData.value = repository.getAllBooks(query)
-            //_allBooksData.value.loading = false
-/*            // Log the query being sent
-            Log.d("Query", "Search query: $query")
-
-            // Make the request to get the books
-            val result = repository.getAllBooks(query)
-            Log.d("Search", "Books received: ${result.data}")
-
-            // Update the state with the new result
-            _allBooksData.value = result.copy(loading = false)*/
         }
     }
 }

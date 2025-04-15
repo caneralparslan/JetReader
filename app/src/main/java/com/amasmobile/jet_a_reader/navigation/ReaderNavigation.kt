@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.amasmobile.jet_a_reader.screens.BookDetailsScreen
+import com.amasmobile.jet_a_reader.screens.bookDetails.BookDetailsScreen
 import com.amasmobile.jet_a_reader.screens.BookUpdateScreen
 import com.amasmobile.jet_a_reader.screens.login_signup.LoginScreen
 import com.amasmobile.jet_a_reader.screens.MainScreen

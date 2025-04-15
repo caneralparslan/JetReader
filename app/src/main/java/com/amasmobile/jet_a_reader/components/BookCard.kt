@@ -29,6 +29,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -109,6 +110,8 @@ fun BookCard(items: Items,
 
             // Title
             Text(items.volumeInfo.title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
                 style = TextStyle(
                     fontSize = 18.sp,
                     fontWeight = FontWeight.SemiBold
@@ -118,7 +121,7 @@ fun BookCard(items: Items,
             Spacer(Modifier.height(15.dp))
 
             // Author
-            Text("[${items.volumeInfo.authors?.get(0)}]",
+            Text("${items.volumeInfo.authors?.toString()}",
                 style = TextStyle(
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Normal
@@ -140,7 +143,7 @@ fun BookCard(items: Items,
                     ),
                     color = Color(0xFF83BCEC),
                     modifier = Modifier
-                        .height(40.dp)
+                        .height(30.dp)
                         .width(80.dp)
                 ) {
 
