@@ -6,7 +6,7 @@ enum class ReaderScreens {
     SplashScreen,
     LoginScreen,
     SignUpScreen,
-    MainScreen,
+    HomeScreen,
     StatsScreen,
     SearchScreen
 }

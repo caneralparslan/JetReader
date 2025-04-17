@@ -7,7 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.amasmobile.jet_a_reader.screens.bookDetails.BookDetailsScreen
 import com.amasmobile.jet_a_reader.screens.BookUpdateScreen
 import com.amasmobile.jet_a_reader.screens.login_signup.LoginScreen
-import com.amasmobile.jet_a_reader.screens.MainScreen
+import com.amasmobile.jet_a_reader.screens.home.HomeScreen
 import com.amasmobile.jet_a_reader.screens.search.SearchScreen
 import com.amasmobile.jet_a_reader.screens.login_signup.SignUpScreen
 import com.amasmobile.jet_a_reader.screens.SplashScreen
@@ -38,9 +38,9 @@ fun ReaderNavigation(){
         }
 
         composable(
-            route = ReaderScreens.MainScreen.name
+            route = ReaderScreens.HomeScreen.name
         ){
-            MainScreen(navController)
+            HomeScreen(navController)
         }
 
         composable("${ReaderScreens.BookDetailsScreen.name}/{bookId}") { backStackEntry ->
@@ -63,9 +63,11 @@ fun ReaderNavigation(){
         }
 
         composable(
-            route = ReaderScreens.BookUpdateScreen.name
-        ){
-            BookUpdateScreen(navController)
+            "${ReaderScreens.BookUpdateScreen.name}/{bookId}"){
+            backStackEntry ->
+            val bookId = backStackEntry.arguments?.getString("bookId")
+            BookUpdateScreen(navController = navController,
+                bookId = bookId.toString())
         }
 
     }

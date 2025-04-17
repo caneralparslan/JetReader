@@ -11,6 +11,7 @@ import com.amasmobile.jet_a_reader.models.ImageLinks
 import com.amasmobile.jet_a_reader.models.IndustryIdentifier
 import com.amasmobile.jet_a_reader.models.ListPrice
 import com.amasmobile.jet_a_reader.models.ListPriceX
+import com.amasmobile.jet_a_reader.models.MBook
 import com.amasmobile.jet_a_reader.models.Offer
 import com.amasmobile.jet_a_reader.models.PanelizationSummary
 import com.amasmobile.jet_a_reader.models.Pdf
@@ -20,6 +21,8 @@ import com.amasmobile.jet_a_reader.models.RetailPriceX
 import com.amasmobile.jet_a_reader.models.SaleInfo
 import com.amasmobile.jet_a_reader.models.SearchInfo
 import com.amasmobile.jet_a_reader.models.VolumeInfo
+import com.google.firebase.Timestamp
+import java.text.DateFormat
 
 class Util {
 
@@ -132,13 +135,21 @@ val items = Items(
         subtitle = "",
         title = "Mına koydumun Kitabı"
     )
+
 )
 
-fun getBooks(): List<Items> {
-    return listOf(items, items, items, items)
-}
+val bookExample = MBook(
+    id = "1",
+    title = "Test Kitabı Deneme 1 2 3",
+    authors = "Caner Alparslan",
+    notes =  "No Note",
+    photoUrl = "http://books.google.com/books/content?id=73RpCQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    categories = "category 1, category 2",
+    publishedDate = "01-04-2024",
+    rating = 3.5,
 
-fun getBookById(bookId: String, items: List<Items>): Items{
-    return items.filter {
-        it.id == bookId }[0]
+)
+
+fun formatDate(timestamp: Timestamp): String {
+    return DateFormat.getDateInstance().format(timestamp.toDate()).toString().split(",")[0] // March 12
 }

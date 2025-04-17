@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,8 +19,7 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun SaveCancelButtons(text: String, onClick: () -> Unit ){
-
+fun BlueButton(text: String, onClick:() -> Unit ){
 
     Surface(
         shape = RoundedCornerShape(topStart = 10.dp, bottomEnd = 10.dp),

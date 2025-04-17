@@ -36,10 +36,11 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil3.compose.rememberAsyncImagePainter
 import com.amasmobile.jet_a_reader.models.Items
+import com.amasmobile.jet_a_reader.models.MBook
 import com.amasmobile.jet_a_reader.navigation.ReaderScreens
 
 @Composable
-fun BookCard(items: Items,
+fun BookCard(book: MBook,
              navController: NavController = rememberNavController()){
 
     Card(
@@ -53,7 +54,7 @@ fun BookCard(items: Items,
             .width(200.dp)
             .padding(start = 20.dp, end = 10.dp)
             .clickable {
-                navController.navigate(ReaderScreens.BookDetailsScreen.name + "/${items.id}")
+                navController.navigate(ReaderScreens.BookUpdateScreen.name + "/${book.id}")
             }
 
     ) {
@@ -74,7 +75,7 @@ fun BookCard(items: Items,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    painter = rememberAsyncImagePainter(items.volumeInfo.imageLinks.thumbnail),
+                    painter = rememberAsyncImagePainter(book.photoUrl),
                     contentDescription = "Book Cover",
                     contentScale = ContentScale.FillBounds,
                     modifier = Modifier
@@ -109,7 +110,7 @@ fun BookCard(items: Items,
             Spacer(Modifier.height(15.dp))
 
             // Title
-            Text(items.volumeInfo.title,
+            Text(book.title.toString(),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 style = TextStyle(
@@ -121,7 +122,8 @@ fun BookCard(items: Items,
             Spacer(Modifier.height(15.dp))
 
             // Author
-            Text("${items.volumeInfo.authors?.toString()}",
+            Text(
+                book.authors.toString(),
                 style = TextStyle(
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Normal

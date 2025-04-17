@@ -3,26 +3,17 @@ package com.amasmobile.jet_a_reader.screens.login_signup
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import com.amasmobile.jet_a_reader.models.MUser
 import com.amasmobile.jet_a_reader.navigation.ReaderScreens
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class LoginSignupViewModel: ViewModel(){
 
@@ -46,7 +37,7 @@ class LoginSignupViewModel: ViewModel(){
 
                 if (task.isSuccessful) {
                     Log.d("User Login Successful", "loginWithEmailAndPassword: ${task.result}")
-                    navController.navigate(ReaderScreens.MainScreen.name)
+                    navController.navigate(ReaderScreens.HomeScreen.name)
                 } else {
                     Log.d("Login Unsuccessful", "loginWithEmailAndPassword: ${task.exception?.message}")
                 }
@@ -73,7 +64,7 @@ class LoginSignupViewModel: ViewModel(){
                     createUserToFirestoreDb(userName!!)
 
                     Log.d("User Create Successful", "createUserWithEmailAndPassword: ${task.result}")
-                    navController.navigate(ReaderScreens.MainScreen.name)
+                    navController.navigate(ReaderScreens.HomeScreen.name)
                 }
                 else {
                     Log.d("User Create Unsuccessful", "createUserWithEmailAndPassword: ${task.exception?.message}")
